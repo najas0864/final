@@ -31,7 +31,7 @@ const upload = multer({ storage: storage });
 
 const app = express();
 dotenv.config({path:'./.env'});
-const port = process.env.PORT || 65536;
+const port = process.env.PORT || 20000;
 
 app.use(cookieParser());
 app.use(express.json());

@@ -1,11 +1,13 @@
+import dotenv from 'dotenv';
 import { createPool } from 'mysql';
-console.log(process.env.DATABASE);
+
+dotenv.config({path:'./.env'});
 
 const DB = createPool({
-    connectionLimit : 100,
-    user:'root',
-    password:'',
-    database:'final',
-    host:'localhost',
+    connectionLimit : process.env.CONNECTION_LIMIT,
+    user:process.env.DATABASE_USER,
+    password:process.env.DATABASE_PASSWORD,
+    database:process.env.DATABASE,
+    host:process.env.DATABASE_HOST,
 })
 export default DB;

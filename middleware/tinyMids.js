@@ -1,10 +1,13 @@
 import jwt from "jsonwebtoken";
 import DB from "../database/database.js";
+import dotenv from "dotenv";
+
+dotenv.config({path:'./.env'});
 
 const SessionOptions = {
-    name:'sessionToken',
+    name:process.env.SESSION_COOKIE_NAME,
     resave:false,
-    secret:"ahdfrr4%gg+k822m_dd$dd&ffTjYYkmlop",
+    secret:process.env.SECRET_WORD,
     saveUninitialized:false,
     resave:false,
     cookie:{
@@ -16,7 +19,7 @@ const SessionOptions = {
 const isAuth = (req, res, next) => {
     const token = req.cookies.userToken;
     if(!token) return res.redirect('/log');
-    jwt.verify(token, "ahdfrr4%gg+k822m_dd$dd&ffTjYYkmlop", (err, decoded)=>{
+    jwt.verify(token, process.env.SECRET_WORD, (err, decoded)=>{
         if(err) return res.redirect('/log');
         let sql = `SELECT * FROM user_info WHERE id = ?`;
         DB.query(sql,[decoded.userId],(err, data)=>{
@@ -30,7 +33,7 @@ const isAuth = (req, res, next) => {
 const isLoged = (req, res, next) => {
     const token = req.cookies.userToken;
     if(token){
-        jwt.verify(token,"ahdfrr4%gg+k822m_dd$dd&ffTjYYkmlop",(err, verifyed)=>{
+        jwt.verify(token,process.env.SECRET_WORD,(err, verifyed)=>{
             if(err) throw err;
             console.log(verifyed);
             if (verifyed) return res.redirect('/');
