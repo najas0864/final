@@ -1,0 +1,12 @@
+doctype html 
+html 
+    include ../components/head.pug
+    body
+        p 
+            |   If you forget your password and coudnt log in please enter your 
+            |   email addresh <i>or</i> contact no to get an veryfication code for log in.
+        form(action="/identityVeryfication", method="post") 
+            label(for="emailContact") Enter email or contact no: 
+            input#emailContact(type="text", name="emailContact")
+            input(type="submit", value="Verify Account")
+            a(href="/log") Go to Log-in 

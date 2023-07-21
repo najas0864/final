@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+    display: flex;
+    color: white;
+    background: #000;
+    flex-direction: column;
+}
+nav{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    border-radius: 2em;
+    list-style-type: none;
+    border: 2px solid #fff;
+    background: linear-gradient(45deg, blue, transparent);
+}
+nav a{
+    padding: 0 5px;
+    font-size: small;
+    background: #001058;
+    border: 2px solid white;
+    border-radius: 1em;
+    color: antiquewhite;
+    text-decoration: none;
+    background: linear-gradient(-45deg, blue, transparent);
+}
+main{
+    flex: 1;
+}
+main>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 20em;
+}
+main>div>div{
+    width: 20em;
+    height: 20em;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    border: 2px solid #fff;
+}
+.imgBox{
+    width: 10em;
+    height: 10em;
+    overflow: hidden;
+    border-radius: 100em;
+    border: 2px solid #fff;
+    position: relative;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+}
+img {
+    width: 100%;
+}
+form{
+    padding: 1em;
+    display: flex;
+    border-radius: 1em;
+    border: 2px solid #fff;
+    flex-direction: column;
+    align-self: flex-start;
+}
+input.intag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+input[type='submit']{
+    margin: 5px 0;
+    padding: 5px 0;
+}
+#uploadBtm{
+    position: absolute;
+    bottom: 0;
+    right: 10em;
+}
+footer{
+    display: flex;
+}
+details{
+    flex: 1;
+}

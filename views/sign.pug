@@ -1,0 +1,37 @@
+doctype html 
+html 
+    include ../components/head.pug
+    body 
+        h2 Sign-Up
+        form(action="/signUp", method="post") 
+            label(for="fullname") Full Name 
+            input#fullname(type="text", name="fullname", placeholder="Eg: Najas Del")
+            label(for="dob") Date Of Birth
+            input#dob(type="date", name="dob")
+            label(for="gender") Gender 
+            select#gender(name="gender")
+                option(value="", selected, disabled) Select your gender
+                option(value="male") Male
+                option(value="female") Female
+                option(value="other") Other
+            label(for="rel") Relationship 
+            select#rel(name="relation") 
+                option(value="", selected, disabled) Choose status
+                option(value="snigle") Single
+                option(value="inRelation") In Relation
+            label(for="tel") Contact No 
+            input#tel(type="tel", name="phone" /*,pattern="[0-9]{4}-[0-9]{6}"*/ placeholder="9808000000")
+            label(for="email") Email 
+            input#email(type="text", name="email", autocomplete="email")
+            label(for="password") Password 
+            input#password(type="password",name="pass", autocomplete="current-password")
+            if message 
+                p #{message} 
+            input(type="submit", value="Sign-in")
+            div 
+                a(href="/log") Already have an account?
+                center 
+                    h4 or 
+                a(href="/resetPass") forget Password ?
+        if error 
+            p #{error}

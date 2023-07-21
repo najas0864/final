@@ -1,0 +1,20 @@
+doctype html 
+html 
+    include ../components/head.pug
+    body 
+        include ../components/nav.pug
+        main 
+            h2 Profile Page 
+            div  
+                div 
+                    form(style="padding:0; align-self:unset;border:unset",action="/upload", method="post", enctype="multipart/form-data") 
+                        img#image(src="me.png", alt="!!myelf!!")
+                        input#inTag.intag(type="file", name="profileImage")
+                        input#uploadBtm(type="submit", value="Upload")
+            if errMsg
+                center 
+                    p(style="color:red;") #{errMsg}
+            center 
+                h3 
+                    a(href="/log_out") Log-Out
+        include ../components/foot.pug

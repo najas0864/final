@@ -1,0 +1,18 @@
+doctype html 
+html 
+    include ../components/head.pug
+    body 
+        h2 Log-In
+        form(action="/logIn", method="post") 
+            label(for="email") Email 
+            input#email(type="email", name="email", autocomplete="email")
+            label(for="password") Password  
+            input#password(type="password", name="password", autocomplete="current-password")
+            if message 
+                p #{message}
+            input(type="submit", value="Log-In")
+            div 
+                a(href="/sign") Dont have an account? 
+                center 
+                    h4 or 
+                a(href="/resetPass") forget Password ?

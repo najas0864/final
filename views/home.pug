@@ -1,0 +1,22 @@
+doctype html 
+html 
+    include ../components/head.pug
+    body 
+        include ../components/nav.pug
+        main 
+            h2 Home Page 
+        h4 these topics are due to learn.
+        p express-mysql-session, graphQL, Parameter Routing, 
+        form(action="/createPost", method="post") 
+            h3 
+                center Create Post 
+            label(for="title") Title 
+            input#title(type="text", name="title")
+            span.imgBox
+                img#image(src="me.png", alt="!!myelf!!")
+            label(for="inTag") Pitcure  
+            input#inTag(type="file", name="files")
+            label(for="status") Status 
+            input#status(type="text", name="status")
+            input(type="submit", value="Post")
+        include ../components/foot.pug
